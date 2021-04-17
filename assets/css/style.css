@@ -1,0 +1,85 @@
+
+html{
+    box-sizing: border-box;
+}
+body{
+    margin:0;
+}
+main {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    background: rgb(184, 184, 184);
+    margin:0;
+}
+.gameboard{
+    height: 100vh;
+    width: 100vh;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    max-height: 60vh;
+    max-width: 60vh;  
+    border:solid rgb(51, 51, 51) 3px;  
+    box-shadow: #7e7e7e 0px 4px 8px 0px;;
+}
+.color{        
+    width: 50%;
+    height: 50%;
+    display: inline-block;
+
+}
+.left{  
+    float: left;
+    
+}
+.right{
+    float: right;    
+}
+.amarillo{
+    background: yellow;    
+}
+.azul{
+    background: blue;
+}
+.rojo{
+    background: red;
+}
+.verde{
+    background: green;
+}
+.amarillo.light{
+    background: rgb(255, 255, 149);
+}
+.azul.ligh{
+    background: rgb(80, 80, 255);
+}
+.rojo{
+    background: rgb(255, 83, 83);
+}
+.verde{
+    background: rgb(2, 187, 2);
+}
+.btn_empezar{
+    width: 200px;
+    height: 50px;
+    border: 3px solid #3e8e41;
+    font-size: 1.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    top: calc(50% - 25px);
+    left: calc(50% - 100px);
+    cursor: pointer;
+    color: #3e8e41;
+    transition: all 0.6s;
+    position: absolute;
+    box-shadow: rgb(33, 117, 0) 0px 4px 8px 0px;
+    
+}
+.btn_empezar:hover{
+    background-color: #3e8e41;
+    color: white;
+    border: 3px solid rgb(250, 250, 250);    
+}
+.hide {
+    display: none;
+  }
