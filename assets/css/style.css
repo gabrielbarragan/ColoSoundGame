@@ -1,4 +1,7 @@
-
+.swal-text {
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
 html{
     box-sizing: border-box;
 }
@@ -9,7 +12,7 @@ main {
     display: flex;
     align-items: center;
     height: 100vh;
-    background: rgb(184, 184, 184);
+    background: rgb(236, 236, 236);
     margin:0;
 }
 .gameboard{
@@ -37,28 +40,28 @@ main {
     float: right;    
 }
 .amarillo{
-    background: yellow;    
+    background: rgb(179, 176, 0);    
 }
 .azul{
-    background: blue;
+    background: rgb(0, 0, 175);
 }
 .rojo{
-    background: red;
+    background: rgb(184, 0, 0);
 }
 .verde{
     background: green;
 }
 .amarillo.light{
-    background: rgb(255, 255, 149);
+    background: rgb(255, 230, 4);
 }
-.azul.ligh{
-    background: rgb(80, 80, 255);
+.azul.light{
+    background: rgb(0, 0, 255);
 }
-.rojo{
-    background: rgb(255, 83, 83);
+.rojo.light{
+    background: rgb(255, 1, 1);
 }
-.verde{
-    background: rgb(2, 187, 2);
+.verde.light{
+    background: rgb(3, 224, 3);
 }
 .btn_empezar{
     width: 200px;
@@ -72,7 +75,7 @@ main {
     color: #3e8e41;
     transition: all 0.6s;
     position: absolute;
-    box-shadow: rgb(33, 117, 0) 0px 4px 8px 0px;
+    box-shadow: rgb(62, 70, 59) 0px 4px 8px 0px;
     
 }
 .btn_empezar:hover{
@@ -83,3 +86,4 @@ main {
 .hide {
     display: none;
   }
+  
