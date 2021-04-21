@@ -11,11 +11,11 @@ const azul= document.getElementById("azul")
 const rojo= document.getElementById("rojo")
 const verde= document.getElementById("verde")
 const ULTIMO_NIVEL= 10;
-
 //Creo la clase juego en la cual uso el constructor para crear los metodos que usaré allí tambien crear las funciones que se requieren para iluminar y apagar los colores.
 
 class Juego{
     constructor(){
+        this.inicializar= this.inicializar.bind(this)
         this.inicializar()
         this.generarSecuencia()
         setTimeout(()=>{
@@ -27,7 +27,8 @@ class Juego{
     inicializar(){
         this.elegircolor = this.elegircolor.bind(this)
         this.siguienteNivel= this.siguienteNivel.bind(this)
-        btn_empezar.classList.add('hide')
+        this.toggleBtnEmpezar()
+        // btn_empezar.classList.add('hide') reemplazado por toggleBtnEmpezar
         this.nivel=1
         this.colores={
             amarillo,// amarillo: amarillo, -> es esto mismo 
@@ -61,7 +62,7 @@ class Juego{
                 return 3;
         }
     }
-    //crea un array de 10 elementos en cero,  luego los mapea y les asigna un número aleatorio entre 0 y 3(incluido) para generar el array que se transformará en array de colores.
+    //crea un array de tamaño ULTIMO_NIVEL dando valor a lo elementos en cero,  luego los mapea y les asigna como valor un número aleatorio entre 0 y 3(incluido) para generar el array que se transformará en array de colores.
     generarSecuencia(){
         this.secuencia= new Array (ULTIMO_NIVEL).fill(0).map(n=>Math.floor(Math.random()*4))
     }
@@ -71,10 +72,10 @@ class Juego{
         this.iluminarSecuencia();
         this.agregarEventosClick();
     }
-    //va a recorrer un for según el nivel en el que vaya el usuario, dentro de este irá iluminando los colores haciendo la transformación de cada color obtenido en el array en número al nombre de cada color, luego con settimeout y la función iluminar color va esperando un segundo por cada color a iluminar (1000*i)
+    //va a recorrer la secuencia previa y completamente generada con un for según el nivel en el que vaya el usuario, dentro de este irá iluminando los colores haciendo la transformación de cada color obtenido en el array en número al nombre de cada color, luego con settimeout y la función iluminar color va esperando un segundo por cada color a iluminar (1000*i)
     iluminarSecuencia(){
         for (let i=0;i < this.nivel; i++){
-            const color= this.transformarNumeroAColor(this.secuencia[i])
+            let color= this.transformarNumeroAColor(this.secuencia[i])
             setTimeout(()=>this.iluminarColor(color),1000 * i)
             
         }
@@ -118,7 +119,7 @@ class Juego{
             if(this.subnivel===this.nivel){
                 this.nivel++
                 this.eliminarEventosClick()
-                if(this.subnivel===ULTIMO_NIVEL+1){
+                if(this.nivel===ULTIMO_NIVEL+1){
                     this.ganoElJuego()
                 }else{
                     setTimeout(this.siguienteNivel,1500)
@@ -132,23 +133,33 @@ class Juego{
     }
     ganoElJuego(){
         swal({
+            title:"Gbo Dev",
             text: "¡Ganaste!",
             icon: "success",
           })
         .then(()=>{
-            this.eliminarEventosClick()
             this.inicializar()
+            this.eliminarEventosClick()
         })
     }
         perdioElJuego(){
         swal({
+            title:"Gbo Dev",
             text: "¡Perdiste!",
             icon: "error",
           })
         .then(()=>{
             this.eliminarEventosClick()
+            this.inicializar()
 
         })
+    }
+    toggleBtnEmpezar(){
+        if (btn_empezar.classList.contains('hide')){
+            btn_empezar.classList.remove('hide')
+        }else{
+            btn_empezar.classList.add('hide')
+        }
     }
 
 }
