@@ -8,21 +8,30 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+    <header >
+        <ul class="nav-bar">
+        <h1 class="text-black">Colosound Game</h1>
+        <h3 class="text-black">Score: <span class="text-black" id="score"></span> </h3>
+        <h3 class="text-black">Nivel: <span class="text-black" id="nivel"></span> </h3>
+        </ul>
+    </header>
     <main>
-        <div class="gameboard">
-                <section class="sound__secuencia">
-                  <audio id="sound_do" src="./assets/sounds/do.wav"></audio>
-                  <audio id="sound_re" src="./assets/sounds/re.wav"></audio>
-                  <audio id="sound_mi" src="./assets/sounds/mi.wav"></audio>
-                  <audio id="sound_fa" src="./assets/sounds/fa.wav"></audio>
-                  <audio id="sound_sol" src="./assets/sounds/sol.wav"></audio>
-                  <audio id="sound_la" src="./assets/sounds/la.wav"></audio>               
-                </section>
-            <div id="amarillo" class="color amarillo left" data-color="amarillo"></div>
-            <div id="azul" class="color azul right" data-color="azul" ></div>
-            <div id="rojo" class="color rojo left" data-color="rojo" ></div>
-            <div id="verde" class="color verde right" data-color="verde" ></div>
-            <button id="botonEmpezar" class="btn_empezar" onclick="empezarJuego()">Empezar</button>
+        <div class="container">
+            <div class="gameboard">
+                    <section class="sound__secuencia">
+                    <audio id="sound_do" src="./assets/sounds/do.wav"></audio>
+                    <audio id="sound_re" src="./assets/sounds/re.wav"></audio>
+                    <audio id="sound_mi" src="./assets/sounds/mi.wav"></audio>
+                    <audio id="sound_fa" src="./assets/sounds/fa.wav"></audio>
+                    <audio id="sound_sol" src="./assets/sounds/sol.wav"></audio>
+                    <audio id="sound_la" src="./assets/sounds/la.wav"></audio>               
+                    </section>
+                <div id="amarillo" class="color amarillo left" data-color="amarillo"></div>
+                <div id="azul" class="color azul right" data-color="azul" ></div>
+                <div id="rojo" class="color rojo left" data-color="rojo" ></div>
+                <div id="verde" class="color verde right" data-color="verde" ></div>
+                <button id="botonEmpezar" class="btn_empezar" onclick="empezarJuego()">Empezar</button>
+            </div>
         </div>
     </main>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
